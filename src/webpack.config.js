@@ -117,6 +117,9 @@ function plugins() {
   // Ignore all locale files of moment.js
   plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
 
+  //Ignore formidable gently define
+  pluginsArray.push(new webpack.DefinePlugin({ "global.GENTLY": false }));
+
   return plugins;
 }
 
