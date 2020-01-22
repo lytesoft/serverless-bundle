@@ -53,7 +53,8 @@ function babelLoader() {
             }
           }
         ]
-      ]
+      ],
+      sourceType: 'unambiguous'
     }
   };
 }
