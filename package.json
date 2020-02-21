@@ -1,6 +1,6 @@
 {
   "name": "serverless-bundle",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "An extension of the serverless-webpack plugin that bundles your Node.js Lambda functions.",
   "main": "index.js",
   "scripts": {
@@ -43,7 +43,7 @@
     "regenerator-runtime": "^0.13.3",
     "serverless-webpack": "^5.3.1",
     "source-map-support": "^0.5.16",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.6"
   },
   "devDependencies": {}
 }
