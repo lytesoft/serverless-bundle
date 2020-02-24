@@ -22,7 +22,7 @@ And all this works without having to install Webpack, Babel, ESLint, etc. or man
 -    "serverless-webpack"
 -    "source-map-support"
 -    "webpack-node-externals"
--    "eslint-config-strongloop"
+-    "eslint-config-prettier"
 -    "@babel/plugin-transform-runtime"
 -    "babel-plugin-source-map-support"
 
