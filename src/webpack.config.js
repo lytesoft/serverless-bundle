@@ -5,7 +5,6 @@ const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const config = require("./config");
-const eslintConfig = require("./eslintrc.json");
 const ignoreWarmupPlugin = require("./ignore-warmup-plugin");
 
 const isLocal = slsw.lib.webpack.isLocal;
@@ -14,7 +13,6 @@ const servicePath = config.servicePath;
 
 const ENABLE_STATS = config.options.stats;
 const COPY_FILES = config.options.copyFiles;
-const ENABLE_LINTING = config.options.linting;
 const ENABLE_SOURCE_MAPS = config.options.sourcemaps;
 const ENABLE_CACHING = isLocal ? config.options.caching : false;
 
@@ -59,15 +57,6 @@ function babelLoader() {
   };
 }
 
-function eslintLoader() {
-  return {
-    loader: "eslint-loader",
-    options: {
-      cache: ENABLE_CACHING,
-      baseConfig: eslintConfig
-    }
-  };
-}
 
 function loaders() {
   const loaders = {
@@ -79,10 +68,6 @@ function loaders() {
       }
     ]
   };
-
-  if (ENABLE_LINTING) {
-    loaders.rules[0].use.push(eslintLoader());
-  }
 
   return loaders;
 }
@@ -104,7 +89,7 @@ function plugins() {
   if (COPY_FILES) {
     plugins.push(
       new CopyWebpackPlugin(
-        COPY_FILES.map(function(data) {
+        COPY_FILES.map(function (data) {
           return {
             to: data.to,
             context: servicePath,
@@ -150,12 +135,12 @@ module.exports = ignoreWarmupPlugin({
   // PERFORMANCE ONLY FOR DEVELOPMENT
   optimization: isLocal
     ? {
-        removeAvailableModules: false,
-        removeEmptyChunks: false,
-        splitChunks: false
-      }
+      removeAvailableModules: false,
+      removeEmptyChunks: false,
+      splitChunks: false
+    }
     : // Don't minimize in production
-      // Large builds can run out of memory
-      { minimize: false },
+    // Large builds can run out of memory
+    { minimize: false },
   plugins: plugins()
 });
