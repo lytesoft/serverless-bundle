@@ -4,7 +4,6 @@ An extension of the [serverless-webpack](https://www.github.com/serverless-heave
 
 - Caching for faster builds
 - Use ES6 `import/export`
-- Supports transpiling unit tests with [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest)
 - Source map support for proper error messages
 
 And all this works without having to install Webpack, Babel, etc. or manage any of their configs. Simply add serverless-bundle to your app and you are done!
@@ -100,17 +99,6 @@ $ cd serverless-bundle
 $ npm install
 ```
 
-Run the tests using.
-
-``` bash
-$ npm test
-```
-
-To test the `serverless-bundle test` command.
-
-``` bash
-$ npm run test-scripts
-```
 
 To install locally in another project.
 
